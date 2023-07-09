@@ -4,8 +4,7 @@
         <a class="btn-outline-primary" href="{% url 'blog:create' %}">Добавить блог</a>
     </div>
         {% for object in object_list %}
-       <div class="card" style="width: 18rem;">
-       <img src="..." class="card-img-top" alt="...">
+       <div class="card mb-4 box-shadow">
            <div class="card-body">
                <p class="card-text">
                    {{object|title}}
@@ -18,8 +17,6 @@
                        class="btn btn-sm btn-outline-secondary">Edit</a>
                        <a href="{% url 'blog:delete' object.pk %}"
                        class="btn btn-sm btn-outline-secondary">Delete</a>
-               <a href="/goods/" class="btn btn-primary">Информация о товаре </a>
-               <a href="#" class="btn btn-primary">Купить </a>
                </div>
                </div>
   </div>
