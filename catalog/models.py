@@ -1,6 +1,8 @@
 # Create your models here.
 from django.db import models
-NULLABLE = {'blank':True, 'null':True}
+
+NULLABLE = {'blank': True, 'null': True}
+
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='id')
@@ -35,3 +37,17 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+
+class Version(models.Model):
+    product = models.ForeignKey("Product", on_delete=models.CASCADE, )
+    # product = models.CharField(max_length=150, verbose_name='Название версии')
+    version_number = models.IntegerField(verbose_name='Номер версии',)
+    version_name = models.CharField(max_length=150, verbose_name='Название версии', default='base')
+
+    def __str__(self):
+        return f' {self.version_number} {self.version_name}'
+
+    class Meta:
+        verbose_name = 'Версия'
+        verbose_name_plural = 'Версии'
